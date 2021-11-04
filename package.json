@@ -1,0 +1,65 @@
+{
+    "name": "grace-note",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./src/index.js",
+    "scripts": {
+        "clear:artefacts": "rm -rf tmp logs dist",
+        "build": "babel ./src -d ./dist --copy-files",
+        "dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./src/index.js",
+        "start": "cross-env NODE_ENV=production node ./dist/index.js",
+        "lint": "eslint src --fix",
+        "docker:build": "docker build . -t grace-note:latest",
+        "docker:run": "docker run --name grace-note -d -p 5000:5000 --env-file .env grace-note:latest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/parkerthegeniuschild/grace-note.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/parkerthegeniuschild/grace-note/issues"
+    },
+    "homepage": "https://github.com/parkerthegeniuschild/grace-note#readme",
+    "dependencies": {
+        "@hapi/joi": "^17.1.1",
+        "app-root-path": "^3.0.0",
+        "axios": "^0.22.0",
+        "body-parser": "^1.19.0",
+        "case": "^1.6.3",
+        "compression": "^1.7.4",
+        "cors": "^2.8.5",
+        "cross-env": "^7.0.3",
+        "dayjs": "^1.10.7",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "express-rate-limit": "^5.4.0",
+        "helmet": "^4.6.0",
+        "http-status-codes": "^2.1.4",
+        "lodash": "^4.17.21",
+        "mongodb": "^4.1.2",
+        "mongoose": "^6.0.9",
+        "pm2": "^5.1.2",
+        "rate-limit-redis": "^2.1.0",
+        "redis": "^3.1.2",
+        "winston": "^3.3.3",
+        "winston-daily-rotate-file": "^4.5.5",
+        "yup": "^0.32.11"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.15.7",
+        "@babel/core": "^7.15.5",
+        "@babel/node": "^7.15.4",
+        "@babel/polyfill": "^7.12.1",
+        "@babel/preset-env": "^7.15.6",
+        "@babel/register": "^7.15.3",
+        "babel-eslint": "^10.1.0",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "eslint": "^7.32.0",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint-plugin-flowtype": "^6.1.0",
+        "eslint-plugin-import": "^2.24.2",
+        "nodemon": "^2.0.13"
+    }
+}
